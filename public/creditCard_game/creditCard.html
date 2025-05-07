@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spend Virtual Money</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; }
+    .card, .item { border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin: 10px; background: white; display: inline-block; }
+    .container { display: flex; justify-content: center; flex-wrap: wrap; }
+    .header { background: #27ae60; color: white; padding: 20px; font-size: 24px; }
+    .footer { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <div class="header">Spend Virtual Money</div>
+  <h2>Choose Credit Card</h2>
+  <div class="container">
+    <label class="card"><input type="radio" name="card" value="gold" checked> Gold (1% cashback, 1 mile/$)</label>
+    <label class="card"><input type="radio" name="card" value="platinum"> Platinum (1.5% cashback, 1.5 miles/$)</label>
+    <label class="card"><input type="radio" name="card" value="black"> Black (2% cashback, 2 miles/$)</label>
+  </div>
+
+  <h2>Products</h2>
+  <div class="container">
+    <div class="item">
+      <p>Big Mac - $2</p>
+      <button onclick="buyItem(2)">Buy</button>
+    </div>
+    <div class="item">
+      <p>Movie Ticket - $12</p>
+      <button onclick="buyItem(12)">Buy</button>
+    </div>
+    <div class="item">
+      <p>Book - $15</p>
+      <button onclick="buyItem(15)">Buy</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <h3>Total Spent: $<span id="spent">0</span></h3>
+    <h3>Total Cashback: $<span id="cashback">0.00</span></h3>
+    <h3>Total Miles: <span id="miles">0</span></h3>
+  </div>
+
+  <script>
+    let totalSpent = 0;
+    let cashback = 0;
+    let miles = 0;
+
+    const creditCards = {
+      gold: { cashback: 0.01, miles: 1 },
+      platinum: { cashback: 0.015, miles: 1.5 },
+      black: { cashback: 0.02, miles: 2 }
+    };
+
+    function getSelectedCard() {
+      const selected = document.querySelector('input[name="card"]:checked').value;
+      return creditCards[selected];
+    }
+
+    function buyItem(price) {
+      const card = getSelectedCard();
+      totalSpent += price;
+      cashback += price * card.cashback;
+      miles += price * card.miles;
+      document.getElementById('spent').innerText = totalSpent;
+      document.getElementById('cashback').innerText = cashback.toFixed(2);
+      document.getElementById('miles').innerText = Math.floor(miles);
+    }
+  </script>
+</body>
+</html>
