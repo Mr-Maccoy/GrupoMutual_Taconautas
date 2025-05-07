@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descubre la Casa</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+    .header {
+      background: #4682b4;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .house-section, .search-section {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 300px;
+    }
+    .house-image {
+      width: 100%;
+      height: 200px;
+      background: #ddd;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #555;
+    }
+    .feature {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+    }
+    .feature input {
+      margin-right: 10px;
+    }
+    button {
+      background: #4682b4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+      width: 100%;
+    }
+    button:hover {
+      background: #3a6d99;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .success {
+      background: #d4edda;
+      color: #155724;
+    }
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Descubre la Casa</h1>
+    <p>Selecciona las características y encuentra qué casa coincide</p>
+  </div>
+
+  <div class="container">
+    <div class="house-section">
+      <h2>Casa en Orotina</h2>
+      <div class="house-image">Imagen de Casa en Orotina</div>
+      <h3>Características disponibles:</h3>
+      
+      <div class="feature">
+        <input type="checkbox" id="metros-100" value="100">
+        <label for="metros-100">100 metros cuadrados</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="metros-150" value="150">
+        <label for="metros-150">150 metros cuadrados</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="metros-200" value="200">
+        <label for="metros-200">200 metros cuadrados</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="habitaciones-2" value="2">
+        <label for="habitaciones-2">2 habitaciones</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="habitaciones-3" value="3">
+        <label for="habitaciones-3">3 habitaciones</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="banos-1" value="1">
+        <label for="banos-1">1 baño</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="banos-2" value="2">
+        <label for="banos-2">2 baños</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="jardin" value="jardin">
+        <label for="jardin">Con jardín</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="garaje" value="garaje">
+        <label for="garaje">Con garaje</label>
+      </div>
+      
+      <div class="feature">
+        <input type="checkbox" id="piscina" value="piscina">
+        <label for="piscina">Con piscina</label>
+      </div>
+    </div>
+
+    <div class="search-section">
+      <h2>Buscar Casa</h2>
+      <p>Selecciona las características que deseas buscar:</p>
+      
+      <button onclick="searchHouse()">Buscar Casa</button>
+      
+      <div id="result" class="result" style="display: none;"></div>
+      
+      <h3>Casas disponibles:</h3>
+      <div id="houses-info">
+        <!-- Aquí se mostrará información de las casas -->
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Definimos nuestras casas con sus características
+    const houses = [
+      {
+        id: 1,
+        name: "Casa Orotina Familiar",
+        metros: 150,
+        habitaciones: 3,
+        banos: 2,
+        jardin: true,
+        garaje: true,
+        piscina: false
+      },
+      {
+        id: 2,
+        name: "Casa Orotina Pequeña",
+        metros: 100,
+        habitaciones: 2,
+        banos: 1,
+        jardin: false,
+        garaje: false,
+        piscina: false
+      },
+      {
+        id: 3,
+        name: "Casa Orotina de Lujo",
+        metros: 200,
+        habitaciones: 3,
+        banos: 2,
+        jardin: true,
+        garaje: true,
+        piscina: true
+      }
+    ];
+
+    // Mostrar información de las casas disponibles
+    function displayHousesInfo() {
+      const housesInfoElement = document.getElementById('houses-info');
+      housesInfoElement.innerHTML = '';
+      
+      houses.forEach(house => {
+        const houseDiv = document.createElement('div');
+        houseDiv.className = 'feature';
+        houseDiv.innerHTML = `
+          <strong>${house.name}:</strong> ${house.metros}m², 
+          ${house.habitaciones} hab., 
+          ${house.banos} baños, 
+          ${house.jardin ? 'con jardín' : 'sin jardín'}, 
+          ${house.garaje ? 'con garaje' : 'sin garaje'}, 
+          ${house.piscina ? 'con piscina' : 'sin piscina'}
+        `;
+        housesInfoElement.appendChild(houseDiv);
+      });
+    }
+
+    // Función para buscar la casa que coincida con las características seleccionadas
+    function searchHouse() {
+      const selectedFeatures = {
+        metros: null,
+        habitaciones: null,
+        banos: null,
+        jardin: false,
+        garaje: false,
+        piscina: false
+      };
+
+      // Obtener los valores seleccionados
+      document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+        const value = checkbox.value;
+        
+        if (value === 'jardin') selectedFeatures.jardin = true;
+        else if (value === 'garaje') selectedFeatures.garaje = true;
+        else if (value === 'piscina') selectedFeatures.piscina = true;
+        else if (checkbox.id.startsWith('metros')) selectedFeatures.metros = parseInt(value);
+        else if (checkbox.id.startsWith('habitaciones')) selectedFeatures.habitaciones = parseInt(value);
+        else if (checkbox.id.startsWith('banos')) selectedFeatures.banos = parseInt(value);
+      });
+
+      // Buscar casa que coincida
+      const foundHouse = houses.find(house => 
+        (selectedFeatures.metros === null || house.metros === selectedFeatures.metros) &&
+        (selectedFeatures.habitaciones === null || house.habitaciones === selectedFeatures.habitaciones) &&
+        (selectedFeatures.banos === null || house.banos === selectedFeatures.banos) &&
+        house.jardin === selectedFeatures.jardin &&
+        house.garaje === selectedFeatures.garaje &&
+        house.piscina === selectedFeatures.piscina
+      );
+
+      // Mostrar resultado
+      const resultElement = document.getElementById('result');
+      resultElement.style.display = 'block';
+      
+      if (foundHouse) {
+        resultElement.className = 'result success';
+        resultElement.innerHTML = `¡Felicidades! Has descubierto la ${foundHouse.name}`;
+      } else {
+        resultElement.className = 'result error';
+        resultElement.innerHTML = 'No hay resultados que coincidan con tu búsqueda';
+      }
+    }
+
+    // Mostrar información de las casas al cargar la página
+    window.onload = displayHousesInfo;
+  </script>
+</body>
+</html>
