@@ -3,9 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Grupo Mutual - Taconautas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ffffff; /* Azul corporativo */
+            color: rgb(0, 0, 0);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: sans-serif;
+        }
+
+        header a {
+            color: #bb3e00; /* Azul corporativo */
+            text-decoration: none;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem;
+        }
+        .card {
+            text-decoration: none;
+            background-color: rgb(71, 209, 198); /* Nuevo color de fondo */
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: rgba(108, 117, 125, 0.09) 0px 4px 6px 0px; /* Sombra suave */
+            display: flex; /* Flexbox para contenido interno */
+            flex-direction: column; /* Alinear contenido en columna */
+            align-items: center; /* Centrar contenido horizontalmente */
+            justify-content: center; /* Centrar contenido verticalmente */
+            width: auto; /* Ajustar ancho automáticamente al contenido */
+            max-width: 300px; /* Ancho máximo */
+            padding: 1rem; /* Espaciado interno */
+            flex: 0 0 auto; /* Evitar que las tarjetas se estiren */
+            margin: 18px; /* Separación entre tarjetas */
+            gap: 7px; /* Espaciado entre elementos internos */
+            transition: transform 0.3s, box-shadow 0.3s; /* Animación al pasar el mouse */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Elevar tarjeta al pasar el mouse */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+        }
+        .card h2 {
+            color: #ffffff; /* Azul corporativo */
+            font-size: 1rem; /* Tamaño de fuente ajustado */
+            margin-bottom: 0.5rem;
+        }
+        .card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem; /* Tamaño de fuente ajustado */
+            color: #400078;
+        }
+        .card a {
+            text-decoration: none;
+            color: rgb(39, 0, 97); /* Texto blanco para contraste */
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .card a:hover {
+            text-decoration: underline;
+        }
+        .card img {
+            width: 80px; /* Tamaño de la imagen */
+            height: 80px; /* Tamaño de la imagen */
+            border-radius: 50%; /* Forma circular */
+            object-fit: cover; /* Ajustar la imagen dentro del contenedor */
+            margin-bottom: 1rem; /* Espaciado inferior */
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        Grupo Mutual - <a>Taconautas</a>
+    </header>
+
+    <section style="text-align: center; margin: 2rem;">
+        <h1 style="color: #005baa; font-size: 2.5rem; font-weight: bold; font-family: 'Arial', sans-serif; line-height: 1.5;">
+            Juega y conoce los beneficios de<br> 
+            <span style="color: #bb3e00;">Grupo Mutual</span>
+        </h1>
+        
+    </section>
+    <div class="container">
+        <div class="card">
+        
+            <h2>Bienes Raíces</h2>
+            <img src="/img/Group_45591.webp" alt="Imagen de Bienes Raíces">
+            <!-- <div class="blanc" style="background-color: white;"> -->
+            <p>¡Pon a prueba tus habilidades!</p>
+            <p>Adivina el precio de las propiedades basándote en:</p>
+            <ul style="list-style-type: disc; padding-left: 1.5rem; text-align: left;">
+            <li>Imágenes</li>
+            <li>Descripciones</li>
+            </ul>
+            <p>¿Crees que puedes acertar? Descubre la respuesta correcta y diviértete jugando con Grupo Mutual.</p>
+            
+            <p><a href="/public/creditCard_game/Adivinanza.html" style="color: #ffffff; background-color: #005baa; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Jugar Ahora</a></p>
+        </div>
+
+
+
+
+        <div class="card">
+            <h2>Beneficio 2</h2>
+            <img src="path/to/image2.jpg" alt="Imagen de Beneficio 2">
+            <p>Descripción breve del beneficio.</p>
+            <p><a href="/public/creditCard_game/bonos.html">Ver más</a></p>
+        </div>
+        <div class="card">
+            <h2>Beneficio 3</h2>
+            <img src="path/to/image3.jpg" alt="Imagen de Beneficio 3">
+            <p>Descripción breve del beneficio.</p>
+            <p><a href="beneficio3.html">Ver más</a></p>
+        </div>
+        
+    </div>
+
+
 </body>
 </html>
