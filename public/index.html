@@ -10,74 +10,75 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            color: #333; /* Default text color for better readability */
         }
         header {
-            background-color: #ffffff; /* Azul corporativo */
-            color: rgb(0, 0, 0);
+            background-color: #005baa; /* Stronger blue for better branding */
+            color: white;
             padding: 1.5rem;
             text-align: center;
             font-size: 1.8rem;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            font-family: sans-serif;
-        }
-
-        header a {
-            color: #bb3e00; /* Azul corporativo */
-            text-decoration: none;
         }
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             margin: 2rem;
+            gap: 20px; /* Add spacing between cards */
         }
         .card {
             text-decoration: none;
-            background-color: rgb(71, 209, 198); /* Nuevo color de fondo */
-            border-radius: 12px; /* Bordes redondeados */
-            box-shadow: rgba(108, 117, 125, 0.09) 0px 4px 6px 0px; /* Sombra suave */
-            display: flex; /* Flexbox para contenido interno */
-            flex-direction: column; /* Alinear contenido en columna */
-            align-items: center; /* Centrar contenido horizontalmente */
-            justify-content: center; /* Centrar contenido verticalmente */
-            width: auto; /* Ajustar ancho automáticamente al contenido */
-            max-width: 300px; /* Ancho máximo */
-            padding: 1rem; /* Espaciado interno */
-            flex: 0 0 auto; /* Evitar que las tarjetas se estiren */
-            margin: 18px; /* Separación entre tarjetas */
-            gap: 7px; /* Espaciado entre elementos internos */
-            transition: transform 0.3s, box-shadow 0.3s; /* Animación al pasar el mouse */
+            background-color: white; /* Better contrast for text */
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+            padding: 1.5rem;
+            margin: 0 auto;
+            gap: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .card:hover {
-            transform: translateY(-5px); /* Elevar tarjeta al pasar el mouse */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
         .card h2 {
-            color: #ffffff; /* Azul corporativo */
-            font-size: 1rem; /* Tamaño de fuente ajustado */
+            color: #005baa; /* Stronger blue for headings */
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            text-align: center;
         }
         .card p {
             margin: 0.5rem 0;
-            font-size: 0.9rem; /* Tamaño de fuente ajustado */
-            color: #400078;
+            font-size: 1rem; /* Slightly larger font size */
+            color: #333; /* Darker text for better readability */
+            text-align: left; /* Align text to the left for readability */
+        }
+        .card img {
+            width: 100px; /* Slightly larger image */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
         }
         .card a {
             text-decoration: none;
-            color: rgb(39, 0, 97); /* Texto blanco para contraste */
+            color: white;
+            background-color: #005baa; /* Stronger blue for buttons */
+            padding: 0.7rem 1.5rem; /* More padding for better usability */
+            border-radius: 8px;
+            font-size: 1rem; /* Larger font size for buttons */
             font-weight: bold;
-            font-size: 0.9rem;
+            display: inline-block;
+            text-align: center;
         }
         .card a:hover {
-            text-decoration: underline;
-        }
-        .card img {
-            width: 80px; /* Tamaño de la imagen */
-            height: 80px; /* Tamaño de la imagen */
-            border-radius: 50%; /* Forma circular */
-            object-fit: cover; /* Ajustar la imagen dentro del contenedor */
-            margin-bottom: 1rem; /* Espaciado inferior */
+            background-color: #003f73; /* Darker blue on hover */
         }
     </style>
 </head>
@@ -105,7 +106,7 @@
             <li>Imágenes</li>
             <li>Descripciones</li>
             </ul>
-            <p>¿Crees que puedes acertar? Descubre la respuesta correcta y diviértete jugando con Grupo Mutual.</p>
+            <p style="text-align: center;">¿Crees que puedes acertar? Descubre la respuesta correcta y diviértete jugando con Grupo Mutual.</p>
             
             <p><a href="/public/creditCard_game/Adivinanza.html" style="color: #ffffff; background-color: #005baa; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Jugar Ahora</a></p>
         </div>
@@ -114,16 +115,24 @@
 
 
         <div class="card">
-            <h2>Beneficio 2</h2>
-            <img src="path/to/image2.jpg" alt="Imagen de Beneficio 2">
-            <p>Descripción breve del beneficio.</p>
-            <p><a href="/public/creditCard_game/bonos.html">Ver más</a></p>
+            <h2>Bonos de Vivienda</h2>
+            <img src="/img/constructoras-autorizadas-grupo-mutual.webp" alt="Imagen de Beneficio 2">
+            <p style="text-align: center;">¿Sabías que Grupo Mutual tiene <strong>bonos especiales</strong> para construir tu hogar? 🏠</p>
+            <p style="text-align: center;">¡Descubre para qué sirve cada uno de ellos!</p>
+            <p style="text-align: center;">🎯 <em>Pon a prueba tu suerte</em> y diviértete con estas adivinanzas. 🤔</p>
+            <p><a href="/public/creditCard_game/bonos.html" style="color: #ffffff; background-color: #005baa; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Jugar Ahora</a></p>
+
         </div>
         <div class="card">
-            <h2>Beneficio 3</h2>
-            <img src="path/to/image3.jpg" alt="Imagen de Beneficio 3">
-            <p>Descripción breve del beneficio.</p>
-            <p><a href="beneficio3.html">Ver más</a></p>
+            <h2>Tarjetas de Crédito</h2>
+            <img src="/img/tarjetas-de-credito-grupo-mutual.webp" alt="Imagen de Beneficio 3">
+            <p style="text-align: center;">¿Sabías que usar las tarjetas de crédito de <strong>Grupo Mutual</strong> puede traerte grandes beneficios? 💳</p>
+            <br>
+            <p style="text-align: center;">Descubre cómo aprovecharlas al máximo mientras te diviertes jugando.</p>
+            <br>
+            <p style="text-align: center;">🎮 ¡Pon a prueba tus conocimientos y aprende jugando con nosotros!</p>
+            <p><a href="/public/creditCard_game/creditCard.html" style="color: #ffffff; background-color: #005baa; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none;">Jugar Ahora</a></p>
+
         </div>
         
     </div>
